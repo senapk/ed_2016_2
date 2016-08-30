@@ -28,12 +28,20 @@ vector<Par> pegar_vizinhos(Par par){
     return vizinhos;
 }
 
+template <class T>
+void shuffle(vector<T> &vet){
+    for(int i = 0; i < (int) vet.size(); i++){
+        std::swap(vet[i], vet[rand() % (int) vet.size()]);
+    }
+}
+
 void queimar(matchar &mat, Par par){
     if(par.l < 0 or par.l >= mat.sizeL())
         return;
     if(par.c < 0 or par.c >= mat.sizeC())
         return;
     mat_draw(mat);
+    mat_focus(par, 'y');
     ed_show();
 
     if(mat.get(par) == 'g'){
@@ -42,6 +50,7 @@ void queimar(matchar &mat, Par par){
         ed_show();
 
         auto viz = pegar_vizinhos(par);
+        shuffle(viz);
         for(auto x : viz)
             queimar(mat, x);
     }
