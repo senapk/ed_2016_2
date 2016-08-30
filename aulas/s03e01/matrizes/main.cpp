@@ -28,37 +28,57 @@ vector<Par> pegar_vizinhos(Par par){
     return vizinhos;
 }
 
-template <class T>
-void shuffle(vector<T> &vet){
+vector<Par> shuffle(vector<Par> &vet){
     for(int i = 0; i < (int) vet.size(); i++){
         std::swap(vet[i], vet[rand() % (int) vet.size()]);
     }
+    return vet;
 }
 
-void queimar(matchar &mat, Par par){
-    if(par.l < 0 or par.l >= mat.sizeL())
-        return;
-    if(par.c < 0 or par.c >= mat.sizeC())
-        return;
+int queimar(matchar &mat, Par p){
+    if(p.l < 0 || p.l >= mat.sizeL())
+        return 0;
+    if(p.c < 0 || p.c >= mat.sizeC())
+        return 0;
+
     mat_draw(mat);
-    mat_focus(par, 'y');
+    mat_focus(p, 'y');
     ed_show();
 
-    if(mat.get(par) == 'g'){
-        mat.get(par) = 'r';
+    //se for arvore
+    if(mat.get(p) == 'g'){
+        //para cada um dos vizinhos de p
+        for(auto par : pegar_vizinhos(p)){
+            if(mat.equals(par, 'b'))
+                //retorne sem queimar
+                return 0;
+        }
+
+        mat.get(p) = 'r';//antes da recursão
+        mat_draw(mat);
+        ed_show();
+        int cont = 1;
+        auto viz = pegar_vizinhos(p);
+        shuffle(viz);
+        for(auto par : viz){
+            cont += queimar(mat, par);
+        }
+
+        mat.get(p) = 'k';//antes da recursão
         mat_draw(mat);
         ed_show();
 
-        auto viz = pegar_vizinhos(par);
-        shuffle(viz);
-        for(auto x : viz)
-            queimar(mat, x);
+        return cont;
+
     }
+    return 0;
 }
+
+
 
 int main(){
     matchar mat(nlinhas, ncolunas, 'g');
-    mat_paint_brush(mat, "wg");
+    mat_paint_brush(mat, "wgb");
     Par p = mat_get_click(mat, "Escolha onde comeca o fogo.");
     queimar(mat, p);
     mat_draw(mat);
