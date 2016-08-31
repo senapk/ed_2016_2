@@ -35,11 +35,15 @@ vector<Par> shuffle(vector<Par> &vet){
     return vet;
 }
 
-int queimar(matchar &mat, Par p){
+bool eh_caminho(matchar &mat, Par p, Par destino){
     if(p.l < 0 || p.l >= mat.sizeL())
-        return 0;
+        return false;
     if(p.c < 0 || p.c >= mat.sizeC())
-        return 0;
+        return false;
+    if(p == destino){
+        return true;
+    }
+
 
     mat_draw(mat);
     mat_focus(p, 'y');
@@ -51,18 +55,23 @@ int queimar(matchar &mat, Par p){
         mat.get(p) = 'r';//antes da recursão
         mat_draw(mat);
         ed_show();
-        int cont = 1;
         auto viz = pegar_vizinhos(p);
         shuffle(viz);
         for(auto par : viz){
-            cont += queimar(mat, par);
+
+            if(eh_caminho(mat, par, destino)){
+                mat.get(p) = 'b';
+                mat_draw(mat);
+                ed_show();
+                return true;
+            }
         }
 
         mat.get(p) = 'k';//antes da recursão
         mat_draw(mat);
         ed_show();
 
-        return cont;
+        return false;
 
     }
     return 0;
@@ -74,7 +83,8 @@ int main(){
     matchar mat(nlinhas, ncolunas, 'w');
     mat_paint_brush(mat, "gw");
     Par p = mat_get_click(mat, "Escolha onde comeca o fogo.");
-    queimar(mat, p);
+    Par dest = mat_get_click(mat, "Escolha o destino");
+    eh_caminho(mat, p, dest);
     mat_draw(mat);
 
     ed_lock();
