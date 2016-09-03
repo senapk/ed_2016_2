@@ -17,6 +17,7 @@ MyPathMaker - Calcula linhas e posições, utilizado para desenhar
 #define SFLINE_H
 
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 class sfLine : public sf::Drawable
 {
