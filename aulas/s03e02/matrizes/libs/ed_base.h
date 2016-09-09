@@ -17,6 +17,7 @@ MyPathMaker - Calcula linhas e posições, utilizado para desenhar
 #define SFLINE_H
 
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 class sfLine : public sf::Drawable
 {
@@ -124,7 +125,7 @@ private:
 
 
     static sf::Font * get_default_font(){
-        const std::string _path = "/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf";
+        const std::string _path = "/usr/share/fonts/truetype/FreeMono.ttf";
         static sf::Font font;
         static bool init = true;
         if(init){
