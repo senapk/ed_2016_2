@@ -2,7 +2,9 @@
 
 
 ## S05E01
+Lembre de se inscrever em qxcode.slack.com e tire suas dúvidas lá.
 
+### Trabalho
 Alterar a **Pilha** para **Vector** retirando os métodos push, pop e top e inserindo os métodos.
 
 ```c++
