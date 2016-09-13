@@ -12,6 +12,7 @@ Alterar a **Pilha** para **Vector** retirando os métodos push, pop e top e inse
     int * end();//retorna o ponteiro para um elemento após o último
     void push_back(int value);//insere no fim
     void pop_back();//retira do fim
+    int &get(int indice);//retorna a referencia ao elemento desse indice
 
     //insere em pos deslocando para frente quem estava em pos e outros
     void insert(int value, int pos);
