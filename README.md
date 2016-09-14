@@ -1,9 +1,10 @@
 
 ## S05E02
-Passando trabalho de listas.
-Na pasta do dia haverá um pdf sobre filas e outro sobre pilhas. No pdf de filas haverá a descrição do algoritmo de preenchimento de imagens.
+Passando trabalho de filas. Implemente a busca do pathfinding utilizando o algorimo de "floodfill".
+Na pasta do dia haverá um pdf sobre filas com o floodfill.
 
-Ultize o algoritmo de preenchimento para construir o algoritmo de menor caminho utilizando pilhas.
+Após achar o caminho entre o ponto de origem e o destino, pinte o caminho encontrado.
+
 
 ## S05E01
 Lembre de se inscrever em qxcode.slack.com e tire suas dúvidas lá.
@@ -20,10 +21,9 @@ Alterar a **Pilha** para **Vector** retirando os métodos push, pop e top e inse
     void push_back(int value);//insere no fim
     void pop_back();//retira do fim
     int &get(int indice);//retorna a referencia ao elemento desse indice
-
     //insere em pos deslocando para frente quem estava em pos e outros
     void insert(int value, int pos);
 
-    //insere em pos deslocando para frente quem estava em pos e outros
-    void insert(int value, int *pos);
+    //remove o elemento da posição deslocando para trás 
+    void remove(int pos);
 ```
