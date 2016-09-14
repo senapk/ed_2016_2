@@ -1,5 +1,9 @@
 
+## S05E02
+Passando trabalho de listas.
+Na pasta do dia haverá um pdf sobre filas e outro sobre pilhas. No pdf de filas haverá a descrição do algoritmo de preenchimento de imagens.
 
+Ultize o algoritmo de preenchimento para construir o algoritmo de menor caminho utilizando pilhas.
 
 ## S05E01
 Lembre de se inscrever em qxcode.slack.com e tire suas dúvidas lá.
@@ -22,4 +26,4 @@ Alterar a **Pilha** para **Vector** retirando os métodos push, pop e top e inse
 
     //insere em pos deslocando para frente quem estava em pos e outros
     void insert(int value, int *pos);
-``` 
+```
