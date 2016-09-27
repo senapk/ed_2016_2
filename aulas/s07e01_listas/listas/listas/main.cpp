@@ -31,6 +31,38 @@ struct SList{
         }
         cout << endl;
     }
+
+    int size(){
+        int count = 0;
+        auto node = head;
+        while(node != nullptr){
+            node = node->next;
+            count++;
+        }
+        return count;
+    }
+
+    void pop_front(){
+        if(head == nullptr)
+            return;
+        auto aux = head;
+        head = head->next;
+        delete aux;
+    }
+
+    void push_back(int value);
+
+    void pop_back();
+
+    //retorna o node ou null
+    Node * find(int value);
+
+    //remove esse nó da lista
+    bool erase(Node * node);
+
+    //insere o elemento antes desse no
+    bool insert(Node * node, int value);
+
 };
 
 int main()
