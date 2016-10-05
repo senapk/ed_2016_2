@@ -1,3 +1,20 @@
+## S08E01
+- Estudar e refazer a lista simples.
+- Estudar e refazer o interator.
+- Transformar a lista simples para lista recursiva.
+- Fazer os seguintes métodos recursivos
+
+```
+    int pegar_casa(int num, int casa)
+    int contar_casas(int num)
+    int somar_digitos(int num);
+    int inverter_numero(int num);
+        98493 -> 39489
+    int rotacionar_esquerda(int num)
+        98493 -> 84939
+    int rotacionar_direita(int num)
+        98493 -> 39849
+```
 
 ## S05E02
 Passando trabalho de filas. Implemente a busca do pathfinding utilizando o algorimo de "floodfill".
