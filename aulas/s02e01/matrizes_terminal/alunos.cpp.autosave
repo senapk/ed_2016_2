@@ -1,7 +1,11 @@
 /*
  * Implemente o pathfinding com fila.
  * Encontre o menor caminho entre dois elementos
- *
+ * 0. Inicie como uma matriz de pontos vazios
+ * 1. Preencha aleatoriamente vários pontos na matriz
+ * 2. Escolha dois pontos via terminal
+ * 3. Faça o algoritmo do pathfinding com filas.
+ * 4. Faça um método recursivo ou interativo que encontre o caminho de retorno.
  */
 
 #include <iostream>
@@ -17,10 +21,10 @@ using namespace std;
 const int LIN = 20;
 const int COL = 60;
 
-const char PAREDE = '#';
-const char VAZIO = ' ';
-const char SPAN = '_';
-const char CAMINHO = '.';
+const char PAREDE = '#';//as paredes
+const char VAZIO = ' ';//os espaços vazios
+const char SPAN = '_'; //como marcar o elemento na hora de por na fila
+const char CAMINHO = '.';//como marcar o caminho de volta
 
 void mostrar(char mat[LIN][COL]){
     for(int l = 0; l < LIN; l++){
